@@ -54,6 +54,3 @@ def screen_stocks(request: ScreenerRequest, client: clickhouse_connect.driver.Cl
         # Catch any exception during query execution and return a detailed error
         print(f"An error occurred during query execution: {e}")
         raise HTTPException(status_code=500, detail=f"Database query failed: {str(e)}")
-
-
-# /update-data 엔드포인트는 제거됨. 데이터 업데이트는 ETL 파이프라인의 책임.
