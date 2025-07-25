@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  clickhouse-server:
+    image: clickhouse/clickhouse-server
+    container_name: clickhouse-server
+    environment:
+      - CLICKHOUSE_USER=default
+      - CLICKHOUSE_PASSWORD=password123
+      - CLICKHOUSE_DB=default
+    ports:
+      - "8123:8123" # HTTP interface
+      - "9000:9000" # Native client interface
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
